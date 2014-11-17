@@ -19,27 +19,20 @@ POKER.Dealer = (function(POKER, window, undefined){
 	},
 	
 	/**
-	 * @name POKER.Dealer~_rankAsFaceMap
-	 * @type object
-	 * @description A mapping of ranks to their face card equivalents.
-	 */
-	_rankAsFaceMap = { 11:'J', 12:'Q', 13:'K', 14:'A' },
-	
-	/**
 	 * @name POKER.Dealer~_getNewDeck
 	 * @function
 	 * @description Returns a new deck of cards; 4 suits, 13 cards per suit.
 	 * @returns {array} A new deck of cards
 	 */
 	_getNewDeck = function() {
-		var suits = ['c', 'd', 'h', 's'], deck = [], rank, suit, i, j;
+		var suits = ['c', 'd', 'h', 's'], faceMap = {11:'J', 12:'Q', 13:'K', 14:'A'}, deck = [], rank, suit, i, j;
 		for (var i=0; i<4; i++) {
 			suit = suits[i];
 			for (j=2; j<15; j++) {
 				if (j < 11) {
 					deck.push(j + suit);
 				} else {
-					deck.push(_rankAsFaceMap[j] + suit);
+					deck.push(faceMap[j] + suit);
 				}
 			}
 		}
@@ -54,11 +47,11 @@ POKER.Dealer = (function(POKER, window, undefined){
 	_shuffleDeck = function() {
 		var deck = this.deck, temp, i, j;
 		for (i=deck.length-1; i>0; i--) {
-	        j = Math.floor(Math.random() * (i + 1));
-	        temp = deck[i];
-	        deck[i] = deck[j];
-	        deck[j] = temp;
-	    }
+			j = Math.floor(Math.random() * (i + 1));
+			temp = deck[i];
+			deck[i] = deck[j];
+			deck[j] = temp;
+		}
 		this.index = 0;
 	};
 	
