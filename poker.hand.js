@@ -110,10 +110,10 @@ POKER.Hand = (function(POKER, window, undefined){
 		
 			// break up string into an array
 			this.cards = this.cards.split(' ');
-	    	if (this.cards.length !== 5) throw 'Follow the example or click deal!';
-	    	
-	    	// break up array into object of rank/suit pairs
-	    	var i, card;
+			if (this.cards.length !== 5) throw 'Follow the example or click deal!';
+			
+			// break up array into object of rank/suit pairs
+			var i, card;
 			for (i=0; i<this.cards.length; i++) {
 				card = this.cards[i];
 				this.cards[i] = {rank:_getCardRank(card), suit:_getCardSuit(card)};
