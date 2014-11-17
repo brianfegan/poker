@@ -41,7 +41,7 @@ window.POKER = (function(self, window, undefined){
 	 */
 	_initialize = function() {
 		if (self.initialized) return;
-		self.view = new POKER.View(),
+		self.view = new POKER.View();
 		self.dealer = new POKER.Dealer();
 		self.initialized = true;
 	};
